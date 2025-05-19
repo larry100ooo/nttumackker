@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="focus-outline-visible">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
+  <link rel="stylesheet" href="chrome://theme/colors.css?sets=ui,chrome">
+  <link rel="stylesheet" href="shared_vars.css">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      --ntp-logo-color: rgb(0, 0, 0);
+      --color-new-tab-page-most-visited-foreground: #5f6368;
+    }
+
+    ntp-app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      color: var(--color-new-tab-page-most-visited-foreground);
+    }
+
+    .logo {
+      font-size: clamp(3rem, 10vw, 5rem);
+      font-weight: 500;
+      color: var(--ntp-logo-color);
+      margin-bottom: 30px;
+      font-family: 'Google Sans', Arial, sans-serif;
+    }
+
+    .search-bar {
+      background-color: #fff;
+      border-radius: 24px;
+      box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+      padding: 12px 24px;
+      width: 100%;
+      max-width: 584px;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar:hover {
+      box-shadow: 0 2px 8px rgba(32, 33, 36, 0.3);
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #202124;
+      background: transparent;
+      padding: 0 12px;
+    }
+
+    .search-bar input::placeholder {
+      color: #9aa0a6;
+    }
+
+    iframe#backgroundImage {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .search-bar {
+        margin: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+  <iframe id="backgroundImage" src=""></iframe>
+  <ntp-app>
+    <div class="logo">Google</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search Google or type a URL">
+    </div>
+  </ntp-app>
+  <script type="module" src="new_tab_page.js"></script>
+  <script type="module" src="./lazy_load.js"></script>
+</body>
+</html>
